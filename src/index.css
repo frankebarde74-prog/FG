@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+
+:root {
+  /* Colors - Asphalt & Signal refined */
+  --ink: #0d1312;
+  --muted: #5b6a68;
+  --line: #e6e3da;
+  --petrol-900: #0b3536;
+  --petrol-800: #0d4647;
+  --petrol-700: #10595a;
+  --petrol-600: #137b79;
+  --petrol-50: #e8f2f1;
+  
+  --amber: #f4a124;
+  --amber-dark: #d4830a;
+  --amber-light: #fecd7e;
+  
+  --paper: #fbfaf7;
+  --soft: #f3f1ea;
+  --surface: #ffffff;
+  
+  /* Radii */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-full: 9999px;
+  
+  /* Fonts */
+  --ff-display: 'Bricolage Grotesque', system-ui, sans-serif;
+  --ff-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --ff-mono: 'Space Mono', ui-monospace, monospace;
+  
+  /* Max width */
+  --container: 1200px;
+  
+  /* Transitions */
+  --tr-fast: 0.15s ease;
+  --tr-base: 0.25s ease;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--ff-body);
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Utils */
+.wrap {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-family: var(--ff-mono);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--petrol-600);
+  margin-bottom: 12px;
+}
+
+.eyebrow--light {
+  color: var(--amber);
+}
+
+/* Animations */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 15px;
+  padding: 14px 28px;
+  border-radius: var(--radius-full);
+  transition: all var(--tr-base);
+  border: 2px solid transparent;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn--amber {
+  background: var(--amber);
+  color: #241a05;
+}
+
+.btn--amber:hover {
+  background: var(--amber-dark);
+  box-shadow: 0 8px 24px -10px var(--amber-dark);
+}
+
+.btn--petrol {
+  background: var(--petrol-700);
+  color: #fff;
+}
+
+.btn--petrol:hover {
+  background: var(--petrol-900);
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--petrol-700);
+  border-color: var(--line);
+}
+
+.btn--ghost:hover {
+  background: var(--petrol-50);
+  border-color: var(--petrol-600);
+}
+
+.btn--outline-light {
+  background: transparent;
+  color: #fff;
+  border-color: rgba(255,255,255, 0.3);
+}
+
+.btn--outline-light:hover {
+  background: rgba(255,255,255, 0.1);
+  border-color: #fff;
+}
+
+.btn--full { width: 100%; }
+.btn--sm { padding: 10px 20px; font-size: 14px; }
+.btn--lg { padding: 18px 36px; font-size: 17px; }
+
+/* Sections */
+section {
+  padding: 80px 0;
+  overflow: hidden;
+}
+
+.sec--paper { background: var(--paper); }
+.sec--soft { background: var(--soft); }
+.sec--surface { background: var(--surface); }
+.sec--petrol { background: var(--petrol-900); color: #fff; }
+
+.sec-head {
+  max-width: 700px;
+  margin-bottom: 48px;
+}
+
+.sec-head--center {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.sec-title {
+  font-family: var(--ff-display);
+  font-weight: 800;
+  font-size: clamp(32px, 5vw, 48px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+
+.sec-lead {
+  font-size: 18px;
+  color: var(--muted);
+}
+
+.sec--petrol .sec-lead {
+  color: rgba(255,255,255,0.7);
+}
+
+/* Forms */
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-label {
+  display: block;
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.input-field {
+  width: 100%;
+  padding: 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--line);
+  background: var(--surface);
+  font-family: inherit;
+  font-size: 16px;
+  transition: border var(--tr-fast);
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: var(--amber);
+  box-shadow: 0 0 0 4px rgba(244, 161, 36, 0.15);
+}
+
+.input-field.error {
+  border-color: #e53e3e;
+}
+
+.checkbox-label {
+  display: flex;
+  gap: 12px;
+  font-size: 14px;
+  cursor: pointer;
+  align-items: flex-start;
+}
+
+.checkbox-label input {
+  margin-top: 4px;
+}
+
+/* Focus styles */
+:focus-visible {
+  outline: 3px solid var(--amber);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 60px 0;
+  }
+}
